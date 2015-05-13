@@ -1,0 +1,9 @@
+calc_stn_pval           calculate signal-to-noise and p-values
+calcs                   calculate standard deviation
+data_ok                 check the spectral count data
+diff_exp_table          calculate diff-exp statss
+fit_model               fit the specified model
+getPvals                calculate p-values
+getSTNdistrib           estimate the STN distribution
+model_fit_plots         plot model-fit
+stn_pval_plots          plot stn against p-value

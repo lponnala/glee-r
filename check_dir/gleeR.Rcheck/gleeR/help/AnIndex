@@ -1,0 +1,9 @@
+calcs	calcs
+calc_stn_pval	calc_stn_pval
+data_ok	data_ok
+diff_exp_table	diff_exp_table
+fit_model	fit_model
+getPvals	getPvals
+getSTNdistrib	getSTNdistrib
+model_fit_plots	model_fit_plots
+stn_pval_plots	stn_pval_plots

@@ -1,0 +1,14 @@
+
+place the R package somewhere online
+	revamp the glee website and link to the R package from there
+	link directly to .zip/.tgz file in bitbucket repo from my website
+
+document all functions using roxygen2
+	add input/output descriptions
+
+implement test_that() checks
+	using a known dataset as example
+	to verify that the top diff-exp proteins turn out to be the same
+
+write a nice vignette to explain usage
+	preferably with an example

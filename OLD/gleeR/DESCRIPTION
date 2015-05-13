@@ -1,0 +1,20 @@
+Package: gleeR
+Title: Differential protein expression test
+Version: 0.1
+Authors@R: "Lalit Ponnala <lalit.p@gmail.com> [aut, cre]"
+Description: Conducts a statistical test to identify differentially expressed
+    proteins between two conditions.
+Depends:
+    R (>= 3.1.1)
+License: GPL-2
+LazyData: true
+Imports:
+    xlsx,
+    stringr,
+    magrittr,
+    Rcpp,
+    BH
+LinkingTo: Rcpp, BH
+Suggests:
+    knitr
+VignetteBuilder: knitr

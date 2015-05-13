@@ -1,0 +1,13 @@
+Package: gleeR
+Title: glee for differential protein expression
+Version: 0.1
+Authors@R: person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
+Description: What the package does (one paragraph)
+Depends: R (>= 3.2.0)
+License: GPL-2
+LazyData: true
+Imports: dplyr
+NeedsCompilation: no
+Packaged: 2015-05-04 02:09:57 UTC; Lalit
+Author: First Last [aut, cre]
+Maintainer: First Last <first.last@example.com>
