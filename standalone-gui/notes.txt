@@ -1,0 +1,4 @@
+
+// Links //
+http://oddhypothesis.blogspot.com/2014/04/deploying-self-contained-r-apps-to.html
+http://blog.analytixware.com/2014/03/packaging-your-shiny-app-as-windows.html

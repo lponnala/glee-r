@@ -1,0 +1,76 @@
+
+// user input/output related //
+
+allow the user to upload data in excel / csv / tab-delimited text
+	throw error if uploaded file is not in one of the acceptable formats
+	if csv / text, allow user to specify
+		if headers exist
+		if separator is a comma / semicolon / tab
+
+create a "pick appropriate settings" option to let the program decide parameter values (based on the input data)
+
+show a "run" button after file upload is completed?
+	no need, since the analysis begins once data is uploaded
+
+make error messaging more meaningful
+	show reason for error in progress message
+	do not just stop()
+
+re-do all plots using ggplot2
+
+display progress status messages as the analysis proceeds
+	[done]
+
+in the results table, allow user to
+	[done] set the number of proteins to display (default 10)
+	[done] set number of digits
+	select columns to display
+
+-------------------------------------------------------------------------
+
+// methodology //
+
+do p-value correction (via Bonferroni, Benjamini-Hochberg)
+	to better identify differentially expressed proteins
+
+dealing with a large model_stn_dist
+	warn if (num_prot * num_iter > 20 million) ?
+		use pryr tools to estimate memory needs and stop if unavailable
+	can magrittr help?
+		pipe the output to p-value calculation without creating a variable to hold model_stn_dist
+	read wickham's book section on memory profiling
+		how to avoid making a copy of a big-sized variable?
+	do in-place sort in C++ using Rcpp
+		??
+	does a variable created inside a function get destroyed (i.e. its memory freed) after return?
+		use pryr to investigate?
+	use gc() to garbage-collect unnecessary variables
+		to make more space available to the distribution vector
+	get a snapshot of how much memory is being occupied by each variable
+		before the long distribution vector is created
+	allocate more memory on shinyapps
+		[done] shinyapps::configureApp("glee", size="medium")
+		but using Cooper full dataset with 10k iterations is still un-doable
+	show a large enough sample of the model_stn_dist
+		enough to capture the "shape" of the distribution
+		the full distribution is only need for accurate p-value calculation
+	compute model_stn_dist in one-go instead of protein-by-protein
+		the R way
+			use apply function to draw num_iter*nA samples (with replacement) from each protein & assemble a (nrows(A)*num_iter)-by-nA matrix
+			use rowMeans to calculate xbar_Astar & replace zeros with min. value
+		the C++ way
+			for each protein, i.e. matrix row
+				use boost(?) to draw num_iter*nA samples (with replacement)
+				take means of every nA samples to calculate xbar_Astar & replace zeros with min. value
+		repeat for xbar_Bstar
+		use predict.bigglm() to calculate stdev
+			separately for xbar_Astar and xbar_Bstar
+
+how many proteins should there be, at a minimum?
+	there is no minimum since each protein is resampled independently
+
+why is adjRsq so low when calculated in python?
+	differs slighly from R when test data is used
+	better to go with R on this one
+
+-------------------------------------------------------------------------
