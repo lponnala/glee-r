@@ -4,7 +4,7 @@
 To use the web-based app, visit this location: [http://lponnala.shinyapps.io/glee](http://lponnala.shinyapps.io/glee)
 
 
-If you want the desktop GUI version, go here: [https://github.com/lponnala/glee-py-gui](https://github.com/lponnala/glee-py-gui)
+If you want the desktop GUI version, go here: [https://github.com/lponnala/glee-py](https://github.com/lponnala/glee-py)
 
 
 ### Current status (as of May 2015)
